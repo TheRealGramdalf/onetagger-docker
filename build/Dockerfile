@@ -28,8 +28,9 @@ RUN update-ca-certificates --fresh
 
 
 # `chown` is executed in the same RUN directive (layer) to save space
-RUN curl -sL ${releaseurl} | tar xzvs -C /usr/bin/ && chown 0:0 /usr/bin/onetagger
-
+RUN curl -sL ${releaseurl} | tar xzvs -C /usr/bin/ \
+    && chown 0:0 /usr/bin/onetagger
+RUN ln -s ~/.config /config
 ## Post-download cleanup
 # Remove curl and ca-certificates
 RUN apt-get purge -yq curl ca-certificates
