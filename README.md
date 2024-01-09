@@ -51,15 +51,15 @@ services:
       - --opt2
       - opt2_value 
 ```
-Please note that whitespace (` `) should be placed on a new line:
+Please note that whitespace-delimited lines (` `) should be placed on a new line:
 ```yaml
 # Invalid:
 - --opt1 value
 # Valid:
 - --opt1
 - value
-# Also valid (whitespace escaped with a quote):
-- --opt1\ value
+# Also valid (whitespace escaped with quotes):
+- '--opt1 value'
 # Also valid (if the program supports it):
 - --opt1=value
 ```
