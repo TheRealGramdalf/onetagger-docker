@@ -23,16 +23,14 @@ If you need `docker run` instead, please see https://decomposerize.com/
 ```yaml
 services:
   onetag:
-    image: therealgramdalf/onetagger:1.7.0-ubuntu
+    image: therealgramdalf/onetagger:devel-ubuntu
     volumes:
       - ./config:/config # Persist configuration in the current subdirectory `./config`
       - /path/to/music:/data/music # Use this to bind mount your media into the container (so onetagger can tag it)
     # The ports section is only required if you use a bridge network (which is the default)
     ports:
-      - 36912:36912 # WebSocket
-      - 36913:36913 # HTTP
+      - 36913:36913 # HTTP and WebSocket. Currently only `devel-ubuntu` supports a single port, 1.7.0 and older require multiple
 ```
-
 
 ### Configuration
 
@@ -45,7 +43,7 @@ services:
       # The first five lines are the default setting - if you specify your own flags, add them...
       - onetagger # Run onetagger
       - --server # Run headlessly (No UI, serve app over HTTP instead)
-      - --expose # Listen on 0.0.0.0:36912 (any ip:36912) instead of localhost:36912 (local machine only)
+      - --expose # Listen on 0.0.0.0:36913 (any ip:36913) instead of localhost:36913 (local machine only)
       - --path
       - /data/music
       # ...here:
