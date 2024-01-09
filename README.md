@@ -13,7 +13,7 @@ For both my sanity and yours, I built this image with the intention of running i
 
 What I *did* intend it for is for it to run locally (similar to an application, just containerized), which is helpful if your distrobution doesn't package OneTagger natively yet (such as NixOS), and other installation methods fail. Or, to run as a program on a local or remote server - if this is the case, please remember that this image is **insecure by default!** Make sure to secure it in some other way, such as behind a reverse proxy with basic auth enabled.
 
-***Always specify a static tag to run this image! `latest` will pull the most recent (potentially breaking) version, which could mess up your files!***
+***Always try to specify a static tag to run this image! `latest` will pull the most recent (potentially breaking) version, which could mess up your files!***
 
 ### Running the image
 
@@ -42,7 +42,7 @@ services:
     command:
       # The first five lines are the default setting - if you specify your own flags, add them...
       - onetagger # Run onetagger
-      - --server # Run headlessly (No UI, serve app over HTTP instead)
+      - server # Run headlessly (No UI, serve app over HTTP instead)
       - --expose # Listen on 0.0.0.0:36913 (any ip:36913) instead of localhost:36913 (local machine only)
       - --path
       - /data/music
