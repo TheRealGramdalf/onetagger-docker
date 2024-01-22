@@ -9,12 +9,10 @@ FROM ubuntu:22.04
 ## Server config
 EXPOSE 36913/tcp
 WORKDIR /data/music
-ARG releaseurl='https://github.com/Marekkon5/onetagger/releases/download/1.7.0/OneTagger-linux.tar.gz'
+ARG releaseurl=''https://1t.marekkon5.workers.dev/artifact/a30d1b7/onetagger-linux-cli 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update -yq \
     && DEBIAN_FRONTEND=noninteractive apt-get install -yq --no-install-recommends \
-    libssl-dev \
-    libsndfile1-dev \
     libasound2-dev \
     curl \
     ca-certificates \
